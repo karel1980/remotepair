@@ -1,4 +1,4 @@
-package org.exercise.remotepair.guice;
+package org.exercise.remotepair.core.guice;
 
 import com.google.inject.AbstractModule;
 

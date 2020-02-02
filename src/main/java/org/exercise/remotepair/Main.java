@@ -3,15 +3,8 @@ package org.exercise.remotepair;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
-import org.exercise.remotepair.guice.BasicModule;
-import org.exercise.remotepair.io.IOService;
-
-import java.io.IOException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
+import org.exercise.remotepair.core.guice.BasicModule;
+import org.exercise.remotepair.core.io.IOService;
 
 public class Main {
 
