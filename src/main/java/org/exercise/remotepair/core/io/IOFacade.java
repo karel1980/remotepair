@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 import static java.util.Collections.emptyList;
 
 @Singleton
-public class IOService {
+public class IOFacade {
     private Scanner scanner = new Scanner(System.in);
 
     public void output(String out) {

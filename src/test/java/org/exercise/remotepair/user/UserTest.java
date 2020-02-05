@@ -16,7 +16,8 @@ class UserTest {
         userBuilder = new User.Builder()
                 .withName("Jantje")
                 .withSurName("Peeters")
-                .withPersonalityTraits(Arrays.asList("funny", "happy", "witty"));
+                .withPersonalityTraits(Arrays.asList("funny", "happy", "witty"))
+                .withAge(25);
     }
 
     @Test
@@ -25,7 +26,7 @@ class UserTest {
 
         String actual = user.getInfo();
 
-        assertThat(actual).isEqualTo("Hello, my name is Jantje Peeters. I am funny, happy and witty.");
+        assertThat(actual).isEqualTo("Hello, my name is Jantje Peeters. I am 25 years old and I am funny, happy and witty.");
     }
 
     @Test
@@ -34,7 +35,7 @@ class UserTest {
 
         String actual = user.getInfo();
 
-        assertThat(actual).isEqualTo("Hello, my name is Jantje Peeters. I am witty.");
+        assertThat(actual).isEqualTo("Hello, my name is Jantje Peeters. I am 25 years old and I am witty.");
     }
 
     @Test

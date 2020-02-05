@@ -1,5 +1,8 @@
 package org.exercise.remotepair.user;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.exercise.remotepair.core.InstanceBuilder;
 
 import java.util.ArrayList;
@@ -9,6 +12,7 @@ public class User {
     private String name;
     private String surName;
     private List<String> personalityTraits;
+    private int age;
 
     public String getName() {
         return name;
@@ -24,7 +28,7 @@ public class User {
 
     public String getInfo() {
         String traits = getPersonalityString();
-        return String.format("Hello, my name is %s %s. I am %s.", name, surName, traits);
+        return String.format("Hello, my name is %s %s. I am %d years old and I am %s.", name, surName, age, traits);
     }
 
     private String getPersonalityString() {
@@ -35,6 +39,42 @@ public class User {
             traits = String.format("%s and %s", joinedTraits, traits);
         }
         return traits;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        return new EqualsBuilder()
+                .append(age, user.age)
+                .append(name, user.name)
+                .append(surName, user.surName)
+                .append(personalityTraits, user.personalityTraits)
+                .isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 37)
+                .append(name)
+                .append(surName)
+                .append(personalityTraits)
+                .append(age)
+                .toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("name", name)
+                .append("surName", surName)
+                .append("personalityTraits", personalityTraits)
+                .append("age", age)
+                .toString();
     }
 
     public static class Builder extends InstanceBuilder<User> {
@@ -50,6 +90,11 @@ public class User {
 
         public Builder withPersonalityTraits(List<String> personalityTraits) {
             instance.personalityTraits = personalityTraits;
+            return this;
+        }
+
+        public Builder withAge(int age) {
+            instance.age = age;
             return this;
         }
 
