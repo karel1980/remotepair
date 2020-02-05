@@ -1,27 +1,18 @@
 package org.exercise.remotepair;
 
 import com.google.inject.Guice;
-import com.google.inject.Inject;
 import com.google.inject.Injector;
-import org.exercise.remotepair.core.RandomFacade;
+import org.exercise.remotepair.core.ViewManager;
 import org.exercise.remotepair.core.guice.BasicModule;
-import org.exercise.remotepair.core.io.IOFacade;
+import org.exercise.remotepair.views.MainView;
 
 public class Main {
 
-    private final IOFacade ioFacade;
-
-    private final RandomFacade randomFacade;
-
-    @Inject
-    public Main(IOFacade ioFacade, RandomFacade randomFacade) {
-        this.ioFacade = ioFacade;
-        this.randomFacade = randomFacade;
-    }
-
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         Injector injector = Guice.createInjector(new BasicModule());
-        Main main = injector.getInstance(Main.class);
+        ViewManager viewManager = injector.getInstance(ViewManager.class);
+
+        viewManager.start(MainView.class);
     }
 
 }

@@ -1,8 +1,9 @@
-package org.exercise.remotepair;
+package org.exercise.remotepair.user;
 
 import com.google.inject.Inject;
 import org.exercise.remotepair.core.io.IOFacade;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserInfoRepository {
@@ -22,27 +23,27 @@ public class UserInfoRepository {
         if (personalityTraits == null) {
             personalityTraits = ioFacade.readFile("adjectives.txt");
         }
-        return personalityTraits;
+        return new ArrayList<>(personalityTraits);
     }
 
     public List<String> getFemaleNames() {
         if (femaleNames == null) {
             femaleNames = ioFacade.readFile("femalenames.txt");
         }
-        return femaleNames;
+        return new ArrayList<>(femaleNames);
     }
 
     public List<String> getMaleNames() {
         if (maleNames == null) {
             maleNames = ioFacade.readFile("malenames.txt");
         }
-        return maleNames;
+        return new ArrayList<>(maleNames);
     }
 
     public List<String> getSurnames() {
         if (surnames == null) {
             surnames = ioFacade.readFile("surnames.txt");
         }
-        return surnames;
+        return new ArrayList<>(surnames);
     }
 }

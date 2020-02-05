@@ -15,7 +15,7 @@ class RandomFacadeTest {
     void getRandomNumbers_hasOnlyDistinctNumbers() {
         List<Integer> actual = randomFacade.getNonRepetitiveRandomNumbers(20, 0, 20);
 
-        IntStream.rangeClosed(0, 20)
+        IntStream.range(0, 20)
                 .boxed()
                 .forEach(assertThat(actual)::contains);
     }

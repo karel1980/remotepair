@@ -14,12 +14,12 @@ public class RandomFacade {
     public List<Integer> getNonRepetitiveRandomNumbers(int amountOfNumbers, int min, int max) {
         List<Integer> toReturn = new ArrayList<>();
 
-        List<Integer> numbers = IntStream.rangeClosed(min, max)
+        List<Integer> numbers = IntStream.range(min, max)
                 .boxed()
                 .collect(Collectors.toList());
         Collections.shuffle(numbers);
 
-        for (int i = 0; i <= amountOfNumbers; i++) {
+        for (int i = 0; i < amountOfNumbers; i++) {
             int randomIndex = random.nextInt(numbers.size());
             int randomElement = numbers.get(randomIndex);
             numbers.remove(randomIndex);

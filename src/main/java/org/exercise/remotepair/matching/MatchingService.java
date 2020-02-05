@@ -1,8 +1,9 @@
-package org.exercise.remotepair;
+package org.exercise.remotepair.matching;
 
 import com.google.inject.Inject;
 import org.exercise.remotepair.core.RandomFacade;
 import org.exercise.remotepair.user.User;
+import org.exercise.remotepair.user.UserInfoRepository;
 
 import javax.inject.Singleton;
 import java.util.List;
