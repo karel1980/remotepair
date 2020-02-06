@@ -1,5 +1,6 @@
 package org.exercise.remotepair.profile;
 
+import com.google.inject.Inject;
 import org.exercise.remotepair.user.User;
 
 import javax.inject.Singleton;
@@ -10,6 +11,7 @@ public class ProfileService {
 
     private final Profile profile;
 
+    @Inject
     public ProfileService(Profile profile) {
         this.profile = profile;
     }
